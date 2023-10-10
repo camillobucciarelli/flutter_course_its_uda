@@ -1,16 +1,10 @@
-# flutter_course_its_uda
+## Pokemon API
 
-A new Flutter project.
+### Get pokemon list
+https://pokeapi.co/api/v2/pokemon?limit=151offset=0
 
-## Getting Started
+### Get pokemon detail
+https://pokeapi.co/api/v2/pokemon/{id}
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Get pokemon image
+https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/{id}.svg
