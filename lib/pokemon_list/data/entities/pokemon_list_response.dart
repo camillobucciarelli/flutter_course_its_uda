@@ -29,6 +29,8 @@ class PokemonListItem extends Equatable {
   final String id;
   final String name;
 
+  String get imageUrl => 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$id.png';
+
   const PokemonListItem(this.id, this.name);
 
   factory PokemonListItem.fromJson(Map<String, dynamic> json) {

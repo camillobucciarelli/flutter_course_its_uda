@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_course_its_uda/pokemon_list/presentation/state/pokemon_list_cubit.dart';
 
+import 'widget/pokemon_list_item_widget.dart';
+
 class PokemonListPage extends StatelessWidget {
   const PokemonListPage({Key? key}) : super(key: key);
 
@@ -26,13 +28,14 @@ class PokemonListPage extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }
             if (state is PokemonListData) {
-              return ListView.builder(
-                padding: EdgeInsets.all(20),
+              return ListView.separated(
+                padding: const EdgeInsets.all(20),
                 itemCount: state.data.results.length,
+                separatorBuilder: (context, index) =>
+                    const SizedBox(height: 20),
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(state.data.results[index].name),
-                    subtitle: Text(state.data.results[index].id),
+                  return UnconstrainedBox(
+                    child: PokemonListItemWidget(state.data.results[index]),
                   );
                 },
               );
