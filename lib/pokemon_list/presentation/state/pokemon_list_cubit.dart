@@ -11,7 +11,7 @@ class PokemonListCubit extends Cubit<PokemonListState> {
 
   void initListPage() async {
     try {
-      final response = await _dataSource.getPokemonList();
+      final response = await _dataSource.getPokemonList(limit: 21);
       emit(PokemonListData(response));
     } catch(e) {
       emit(PokemonListFailure());

@@ -28,16 +28,31 @@ class PokemonListPage extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }
             if (state is PokemonListData) {
-              return ListView.separated(
-                padding: const EdgeInsets.all(20),
-                itemCount: state.data.results.length,
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: 20),
-                itemBuilder: (context, index) {
-                  return UnconstrainedBox(
-                    child: PokemonListItemWidget(state.data.results[index]),
-                  );
-                },
+              // return ListView.separated(
+              //   padding: const EdgeInsets.all(20),
+              //   itemCount: state.data.results.length,
+              //   separatorBuilder: (context, index) =>
+              //       const SizedBox(height: 20),
+              //   itemBuilder: (context, index) {
+              //     return UnconstrainedBox(
+              //       child: PokemonListItemWidget(state.data.results[index]),
+              //     );
+              //   },
+              // );
+              return Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    childAspectRatio: 1,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                  ),
+                  itemCount: state.data.results.length,
+                  itemBuilder: (context, index) {
+                    return PokemonListItemWidget(state.data.results[index]);
+                  },
+                ),
               );
             }
             return Center(
