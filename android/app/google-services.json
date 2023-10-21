@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "280701136589",
+    "project_id": "flutter-course-its-uda",
+    "storage_bucket": "flutter-course-its-uda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280701136589:android:2c8840fd32b8b3fe0fc384",
+        "android_client_info": {
+          "package_name": "com.dontpaniccompany.flutter_course_its_uda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEb97TuGU0rdJa5DOViIeET1FjGGvVx94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
