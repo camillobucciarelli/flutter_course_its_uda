@@ -10,9 +10,7 @@ part of 'pokemon_api_data_source.dart';
 
 class _PokemonApiDataSource implements PokemonApiDataSource {
   _PokemonApiDataSource(
-    this._dio, {
-    this.baseUrl,
-  }) {
+    this._dio) {
     baseUrl ??= 'https://pokeapi.co/api/v2';
   }
 
@@ -31,7 +29,7 @@ class _PokemonApiDataSource implements PokemonApiDataSource {
       r'offset': offset,
     };
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<PokemonListResponse>(Options(
       method: 'GET',

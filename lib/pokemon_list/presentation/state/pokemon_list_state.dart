@@ -11,11 +11,12 @@ class PokemonListLoading extends PokemonListState {
 
 class PokemonListData extends PokemonListState {
   final PokemonListResponse data;
+  final List<String> likedPokemons;
 
-  const PokemonListData(this.data);
+  const PokemonListData(this.data, this.likedPokemons);
 
   @override
-  List<Object?> get props => [data];
+  List<Object?> get props => [data, likedPokemons];
 }
 
 class PokemonListFailure extends PokemonListState {

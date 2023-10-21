@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_course_its_uda/pokemon_list/presentation/state/pokemon_list_cubit.dart';
@@ -21,6 +22,9 @@ class PokemonListPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Pokemon list'),
+          actions: [
+            Text(FirebaseAuth.instance.currentUser?.email ?? ''),
+          ],
         ),
         body: BlocBuilder<PokemonListCubit, PokemonListState>(
           builder: (context, state) {
@@ -42,6 +46,7 @@ class PokemonListPage extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: GridView.builder(
+                  clipBehavior: Clip.none,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     childAspectRatio: 1,
@@ -50,7 +55,11 @@ class PokemonListPage extends StatelessWidget {
                   ),
                   itemCount: state.data.results.length,
                   itemBuilder: (context, index) {
-                    return PokemonListItemWidget(state.data.results[index]);
+                    return PokemonListItemWidget(
+                      state.data.results[index],
+                      isLiked: state.likedPokemons
+                          .contains(state.data.results[index].id),
+                    );
                   },
                 ),
               );
